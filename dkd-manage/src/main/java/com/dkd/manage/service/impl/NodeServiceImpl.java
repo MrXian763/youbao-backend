@@ -2,6 +2,7 @@ package com.dkd.manage.service.impl;
 
 import java.util.List;
 import com.dkd.common.utils.DateUtils;
+import com.dkd.manage.domain.vo.NodeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.dkd.manage.mapper.NodeMapper;
@@ -10,19 +11,19 @@ import com.dkd.manage.service.INodeService;
 
 /**
  * 点位管理Service业务层处理
- * 
+ *
  * @author zicai
  * @date 2024-09-19
  */
 @Service
-public class NodeServiceImpl implements INodeService 
+public class NodeServiceImpl implements INodeService
 {
     @Autowired
     private NodeMapper nodeMapper;
 
     /**
      * 查询点位管理
-     * 
+     *
      * @param id 点位管理主键
      * @return 点位管理
      */
@@ -34,7 +35,7 @@ public class NodeServiceImpl implements INodeService
 
     /**
      * 查询点位管理列表
-     * 
+     *
      * @param node 点位管理
      * @return 点位管理
      */
@@ -46,7 +47,7 @@ public class NodeServiceImpl implements INodeService
 
     /**
      * 新增点位管理
-     * 
+     *
      * @param node 点位管理
      * @return 结果
      */
@@ -59,7 +60,7 @@ public class NodeServiceImpl implements INodeService
 
     /**
      * 修改点位管理
-     * 
+     *
      * @param node 点位管理
      * @return 结果
      */
@@ -72,7 +73,7 @@ public class NodeServiceImpl implements INodeService
 
     /**
      * 批量删除点位管理
-     * 
+     *
      * @param ids 需要删除的点位管理主键
      * @return 结果
      */
@@ -84,7 +85,7 @@ public class NodeServiceImpl implements INodeService
 
     /**
      * 删除点位管理信息
-     * 
+     *
      * @param id 点位管理主键
      * @return 结果
      */
@@ -92,5 +93,15 @@ public class NodeServiceImpl implements INodeService
     public int deleteNodeById(Long id)
     {
         return nodeMapper.deleteNodeById(id);
+    }
+
+    /**
+     * 查询点位管理列表VO
+     * @param node
+     * @return 点位列表VO集合
+     */
+    @Override
+    public List<NodeVO> selectNodeVOList(Node node) {
+        return nodeMapper.selectNodeVOList(node);
     }
 }
