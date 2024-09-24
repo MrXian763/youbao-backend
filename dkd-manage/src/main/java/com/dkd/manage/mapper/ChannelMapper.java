@@ -36,6 +36,13 @@ public interface ChannelMapper
     public int insertChannel(Channel channel);
 
     /**
+     * 批量新增售货机货道
+     * @param channelList
+     * @return 新增结果
+     */
+    public int batchInsertChannel(List<Channel> channelList);
+
+    /**
      * 修改售货机货道
      * 
      * @param channel 售货机货道

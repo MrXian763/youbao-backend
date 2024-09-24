@@ -58,6 +58,16 @@ public class ChannelServiceImpl implements IChannelService
     }
 
     /**
+     * 批量新增售货机货道
+     * @param channelList
+     * @return 新增结果
+     */
+    @Override
+    public int batchInsertChannel(List<Channel> channelList) {
+        return channelMapper.batchInsertChannel(channelList);
+    }
+
+    /**
      * 修改售货机货道
      * 
      * @param channel 售货机货道
