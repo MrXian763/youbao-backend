@@ -65,4 +65,11 @@ public interface ChannelMapper
      * @return 结果
      */
     public int deleteChannelByIds(Long[] ids);
+
+    /**
+     * 根据商品id查询货道
+     * @param skuIds 商品id集合
+     * @return 货道数量
+     */
+    public int countChannelBySkuIds(Long[] skuIds);
 }

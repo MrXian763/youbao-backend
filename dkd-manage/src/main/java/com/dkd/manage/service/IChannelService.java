@@ -65,4 +65,11 @@ public interface IChannelService
      * @return 结果
      */
     public int deleteChannelById(Long id);
+
+    /**
+     * 根据商品id查询货道数量
+     * @param skuIds 商品id集合
+     * @return 货道数量
+     */
+    public int countChannelBySkuIds(Long[] skuIds);
 }

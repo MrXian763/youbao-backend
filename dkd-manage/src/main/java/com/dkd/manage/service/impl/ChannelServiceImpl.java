@@ -103,4 +103,14 @@ public class ChannelServiceImpl implements IChannelService
     {
         return channelMapper.deleteChannelById(id);
     }
+
+    /**
+     * 根据商品id查询货道
+     * @param skuIds 商品id集合
+     * @return 货道数量
+     */
+    @Override
+    public int countChannelBySkuIds(Long[] skuIds) {
+        return channelMapper.countChannelBySkuIds(skuIds);
+    }
 }
