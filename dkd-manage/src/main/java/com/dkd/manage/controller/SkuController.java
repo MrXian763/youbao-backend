@@ -20,6 +20,7 @@ import com.dkd.manage.domain.Sku;
 import com.dkd.manage.service.ISkuService;
 import com.dkd.common.utils.poi.ExcelUtil;
 import com.dkd.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 商品管理Controller
@@ -100,5 +101,20 @@ public class SkuController extends BaseController
     public AjaxResult remove(@PathVariable Long[] skuIds)
     {
         return toAjax(skuService.deleteSkuBySkuIds(skuIds));
+    }
+
+    /**
+     * 导入商品
+     * @param file excel文件
+     * @return 导入结果
+     * @throws Exception 异常
+     */
+    @PreAuthorize("@ss.hasPermi('manage:sku:add')")
+    @Log(title = "商品管理", businessType = BusinessType.IMPORT)
+    @PostMapping("/import")
+    public AjaxResult excelImport(MultipartFile file) throws Exception {
+        ExcelUtil<Sku> util = new ExcelUtil<Sku>(Sku.class);
+        List<Sku> skuList = util.importExcel(file.getInputStream());
+        return toAjax(skuService.batchInsertSku(skuList));
     }
 }

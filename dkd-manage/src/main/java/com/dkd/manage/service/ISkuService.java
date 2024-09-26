@@ -36,6 +36,13 @@ public interface ISkuService
     public int insertSku(Sku sku);
 
     /**
+     * 批量新增商品管理
+     * @param skuList 商品集合
+     * @return 结果
+     */
+    public int batchInsertSku(List<Sku> skuList);
+
+    /**
      * 修改商品管理
      * 
      * @param sku 商品管理
